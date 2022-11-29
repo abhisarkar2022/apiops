@@ -2,9 +2,9 @@ openapi: 3.0.1
 info:
   title: starwars
   description: ''
-  version: v1
+  version: v2
 servers:
-  - url: https://apim-29112022-dev.azure-api.net/starwars/v1
+  - url: https://apim-29112022-dev.azure-api.net/starwars/v2
 paths:
   /people:
     get:
