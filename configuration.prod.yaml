@@ -1,0 +1,6 @@
+apimServiceName: prod
+namedValues:
+  - name: environment
+    properties:
+      displayName: environment
+      value: "https://www.search2.com"
