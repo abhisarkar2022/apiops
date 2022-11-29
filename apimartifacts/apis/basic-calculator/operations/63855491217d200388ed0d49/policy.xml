@@ -1,0 +1,29 @@
+<policies>
+	<inbound>
+		<base />
+		<!-- Caching policy. This policy must have a corresponding Store to cache policy -->
+		<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" />
+	</inbound>
+	<backend>
+		<base />
+	</backend>
+	<outbound>
+		<base />
+		<!-- Caching policy. Store duration accompanied by the caching policy  -->
+		<cache-store duration="3600" />
+		<!-- Transform xml to json -->
+		<xml-to-json kind="direct" apply="always" consider-accept-header="false" />
+		<!-- Replace a string -->
+		<find-and-replace from="Azure API Management" to="Azure APIM" />
+		<!-- Policy to remove security related response headers -->
+		<set-header name="x-aspnet-version" exists-action="delete" />
+		<set-header name="x-powered-by" exists-action="delete" />
+		<!-- Named values  (aka Properties) to manage string constants -->
+		<set-header name="x-response-sent-time" exists-action="override">
+			<value>{{TimeNow}}</value>
+		</set-header>
+	</outbound>
+	<on-error>
+		<base />
+	</on-error>
+</policies>

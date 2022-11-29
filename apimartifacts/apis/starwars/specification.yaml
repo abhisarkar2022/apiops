@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: starwars
+  description: ''
+  version: v1
+servers:
+  - url: https://apim-29112022-dev.azure-api.net/starwars/v1
+paths:
+  /people:
+    get:
+      summary: GetPeople
+      description: GetPeople
+      operationId: getpeople
+      responses:
+        '200':
+          description: ''
+  '/people/{id}':
+    get:
+      summary: GetPeopleById
+      description: GetPeopleById
+      operationId: getpeoplebyid
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
